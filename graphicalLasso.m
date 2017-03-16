@@ -136,4 +136,8 @@ function g = gFunc(y,X,beta)
 %   g - g(beta)
 g = norm(y-X*beta,2).^2;
 
+function y = logdet(A)
+% compute log deteminant of A
 
+U = chol(A);
+y = 2*sum(log(diag(U)));
