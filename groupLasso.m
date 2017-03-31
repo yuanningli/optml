@@ -169,3 +169,17 @@ while gFunc(y, X, beta-t*Gt, costType) > gFunc(y, X, beta, costType) ...
     crrntSteps = crrntSteps + 1;
 end
 steps = crrntSteps;
+
+function G = generalizedGrad(t,y,X,beta,lambda,group,nGroup,costType)
+% Input:
+% y - n x 1 response
+% X - n x p design matrix
+% beta - p x 1 input
+% lambda - regularization parameter
+% group - p x 1 group vector (0 for beta0)
+% nGroup - number of groups
+% costType - type of cost functions, leastsquare or logistic
+%
+% Output:
+% G - generalized gradient Gt(beta)
+G = (beta - prox(beta - t * grad(y,X,beta,costType),t,lambda,group,nGroup)) / t;
