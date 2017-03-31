@@ -32,7 +32,8 @@ if strcmp(stepsize,'backtrack')
             break
         end
     end
-elseif stcmp(stepsize,'accelerate')
+% elseif stcmp(stepsize,'accelerate')
+else
     t = stepsize;
     beta = zeros(size(X,2),1);
     fAcc = zeros(nSteps,1);
@@ -48,17 +49,17 @@ elseif stcmp(stepsize,'accelerate')
             break
         end
     end
-else
-    t = stepsize;
-    beta = zeros(size(X,2),1);
-    f = zeros(nSteps,1);
-    for k = 1 : nSteps
-        beta = prox(beta - t * grad(y,X,beta,costType),t,lambda,group,nGroup);
-        f(k) = costFunc(y,X,beta,lambda,group,nGroup,costType);
-        if k > 1 && abs(f(k) - f(k-1)) < thres
-            break
-        end
-    end
+% else
+%     t = stepsize;
+%     beta = zeros(size(X,2),1);
+%     f = zeros(nSteps,1);
+%     for k = 1 : nSteps
+%         beta = prox(beta - t * grad(y,X,beta,costType),t,lambda,group,nGroup);
+%         f(k) = costFunc(y,X,beta,lambda,group,nGroup,costType);
+%         if k > 1 && abs(f(k) - f(k-1)) < thres
+%             break
+%         end
+%     end
 end
 
 function beta = prox(x,t,lambda,group,nGroup)
