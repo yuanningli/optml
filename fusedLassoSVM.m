@@ -1,5 +1,5 @@
 function w = fusedLassoSVM(X,y,t1,t2,varargin)
-% solving the linear programming for fused-lasso SVM using MOSEK
+% solving the linear programming for fused-lasso SVM
 % minimize_{w} \sum_i max(0,1 - y_i * x_i^T * w) 
 % subject to: ||w||_1 < t_1
 %             \sum_j |w_j - w_{j+1}| < t_2
