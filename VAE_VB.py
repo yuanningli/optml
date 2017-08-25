@@ -237,3 +237,4 @@ plt.axis('off')
 plt.savefig('out/AEVB_Visualize_Latent_Grid.png', bbox_inches='tight')
 plt.close(ff)
 
+
