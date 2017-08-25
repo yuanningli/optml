@@ -184,3 +184,4 @@ function G = generalizedGrad(t,y,X,beta,lambda,group,nGroup,costType)
 % Output:
 % G - generalized gradient Gt(beta)
 G = (beta - prox(beta - t * grad(y,X,beta,costType),t,lambda,group,nGroup)) / t;
+
